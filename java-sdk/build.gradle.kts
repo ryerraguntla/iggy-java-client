@@ -9,6 +9,7 @@ version = "0.1.1"
 
 repositories {
     mavenCentral()
+    maven("https://oss.sonatype.org/content/repositories/snapshots")
 }
 
 java {
@@ -25,6 +26,9 @@ dependencies {
     implementation("com.google.code.findbugs:jsr305:3.0.2")
     implementation("io.projectreactor:reactor-core:3.6.11")
     implementation("io.projectreactor.netty:reactor-netty-core:1.1.23")
+    implementation ("io.openmessaging:openmessaging-api:2.2.1-pubsub")
+    //implementation ("org.apache.rocketmq:rocketmq-client:5.2.0")
+    // Optional: RocketMQ implementation
     testImplementation("org.testcontainers:testcontainers:1.20.3")
     testImplementation("org.testcontainers:junit-jupiter:1.20.3")
     testImplementation(platform("org.junit:junit-bom:5.11.3"))

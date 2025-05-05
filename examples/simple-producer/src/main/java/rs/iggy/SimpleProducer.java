@@ -14,6 +14,13 @@ import java.math.BigInteger;
 import java.util.Optional;
 import static java.util.Collections.singletonList;
 import static java.util.Optional.empty;
+import io.openmessaging.Producer.producer;
+import io.openmessaging.*;
+import io.openmessaging.producer.Producer;
+import io.openmessaging.producer.SendResult;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 public class SimpleProducer {
     private static final String STREAM_NAME = "dev01";
@@ -23,7 +30,15 @@ public class SimpleProducer {
     private static final Logger log = LoggerFactory.getLogger(SimpleProducer.class);
 
     public static void main(String[] args) {
-        var client = new IggyTcpClient("localhost", 8090);
+/*       boolean openMsg = getOpenMsg(args);
+
+         if (openMsg) {
+            log.info("Open message is set to true");
+
+         }*/
+
+
+       var client = new IggyTcpClient("localhost", 8090);
         client.users().login("iggy", "iggy");
 
         createStream(client);
@@ -37,6 +52,36 @@ public class SimpleProducer {
         }
 
     }
+/*
+    private static boolean getOpenMsg(String[] args) {
+        if (args.length == 3) {
+            return Boolean.parseBoolean(args[2]);
+        }
+        return false;
+    }
+
+    private static void OpenMsgProtocol(IggyTcpClient client) {
+        String serviceUrl = "oms:rocketmq://localhost:9876/default:default";
+        MessagingAccessPoint accessPoint = OMS.getMessagingAccessPoint(serviceUrl);
+
+        accessPoint.startup();
+        Producer producer = accessPoint.createProducer();
+        producer.startup();
+
+        int counter = 0;
+        while (counter++ < 1000) {
+            Message message = producer.createMessage(
+                "events", // topic
+                "message from simple producer " + counter.getBytes()
+            );
+            SendResult result = producer.send(message);
+            log.debug("Message {} sent, msgId={}", counter, result.messageId());
+        }
+
+        producer.shutdown();
+        accessPoint.shutdown();
+    }
+*/
 
     private static void createStream(IggyTcpClient client) {
         Optional<StreamDetails> stream = client.streams().getStream(STREAM_ID);
