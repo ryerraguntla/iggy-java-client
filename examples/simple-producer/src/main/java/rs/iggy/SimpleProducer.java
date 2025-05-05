@@ -14,10 +14,10 @@ import java.math.BigInteger;
 import java.util.Optional;
 import static java.util.Collections.singletonList;
 import static java.util.Optional.empty;
-import io.openmessaging.Producer.producer;
+/*import io.openmessaging.Producer.producer;
 import io.openmessaging.*;
 import io.openmessaging.producer.Producer;
-import io.openmessaging.producer.SendResult;
+import io.openmessaging.producer.SendResult;*/
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
