@@ -1,0 +1,10 @@
+Calculating task graph as configuration cache cannot be reused due to --refresh-dependencies
+> Task :clean
+> Task :processResources NO-SOURCE
+> Task :processTestResources
+
+> Task :compileJava FAILED
+
+[Incubating] Problems report is available at: file:///Users/raveendra.yerraguntla/IdeaProjects/iggy-java-client/openmessaging/build/reports/problems/problems-report.html
+3 actionable tasks: 3 executed
+Configuration cache entry stored.
